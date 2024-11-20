@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DataBinding.MainPage"
+             BackgroundColor="#2C2C2C">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <!-- Botón para agregar nueva persona -->
+            <Button Text="Nueva Persona"
+                 Clicked="Button_Cliked"
+                 BackgroundColor="#6A1B9A"
+                 TextColor="White"
+                 CornerRadius="10"
+                 Padding="15"
+                 FontSize="16"
+                 HeightRequest="50" />
+
+            <!-- Título de la lista -->
+            <Label Text="Lista de Personas"
+                FontSize="22"
+                TextColor="White"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                Margin="0,20,0,10" />
+
+            <!-- Lista de personas -->
+            <CollectionView ItemsSource="{Binding Personas}"
+                         Margin="0,10,0,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="#6A1B9A"
+                            CornerRadius="10"
+                            Padding="15"
+                            Margin="0,10,0,10"
+                            BackgroundColor="#424242"
+                            HasShadow="True">
+                            <VerticalStackLayout Spacing="12">
+                                <!-- ID de la persona -->
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="ID:"
+                                        FontAttributes="Bold"
+                                        TextColor="#FFEB3B" />
+                                    <Label Text="{Binding id}"
+                                        TextColor="White" />
+                                </HorizontalStackLayout>
+
+                                <!-- Información personal -->
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="Nombre:"
+                                        FontAttributes="Bold"
+                                        TextColor="#FFEB3B" />
+                                    <Label Text="{Binding nombre}"
+                                        TextColor="White" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="Apellido:"
+                                        FontAttributes="Bold"
+                                        TextColor="#FFEB3B" />
+                                    <Label Text="{Binding apellido}"
+                                        TextColor="White" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="Sexo:"
+                                        FontAttributes="Bold"
+                                        TextColor="#FFEB3B" />
+                                    <Label Text="{Binding sexo}"
+                                        TextColor="White" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="Fecha de Nacimiento:" 
+                                        FontAttributes="Bold"
+                                        TextColor="#FFEB3B" />
+                                    <Label Text="{Binding fh_nac}" 
+                                        TextColor="White" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout Spacing="10">
+                                    <Label Text="Rol:"
+                                        FontAttributes="Bold"
+                                        TextColor="#FFEB3B" />
+                                    <Label Text="{Binding rol}"
+                                        TextColor="White" />
+                                </HorizontalStackLayout>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
